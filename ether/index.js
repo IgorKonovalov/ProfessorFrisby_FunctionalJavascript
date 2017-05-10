@@ -9,7 +9,7 @@ const Right = x => ({
 const Left = x => ({
 	map: f => Left(x),
 	fold: (f, g) => f(x),
-	inspect: () => `Right(${x})`
+	inspect: () => `Left(${x})`
 })
 
 const result = Left(2)
