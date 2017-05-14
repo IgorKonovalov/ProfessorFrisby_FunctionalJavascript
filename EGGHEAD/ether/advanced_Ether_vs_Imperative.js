@@ -94,7 +94,7 @@ const readFile = x => tryCatch(() => fs.readFileSync(x))
 const wrapExamplesF = example =>
   fromNullable(example.previewPath)
     .chain(readFile)
-    .fold(() => example, ex => Objects.assign({preview: p}, ex))
+    .fold(() => example, preview => Object.assign({}, example, {preview}))
 
 /////////////
 
