@@ -26,6 +26,41 @@ const sentences = _.map(words)
 //   }, xs)
 // }
 
-const filterQs = _.filter(_.match(/q/i));
+const filterQs = _.filter(_.match(/q/i))
 
-console.log(filterQs('im not queing any q'))
+// console.log(filterQs('im not queing any q'))
+
+// Exercise 3 //
+
+// var max = function(xs) {
+//   return _.reduce(
+//     function(acc, x) {
+//       return _keepHighest(acc, x)
+//     },
+//     -Infinity,
+//     xs
+//   )
+// }
+
+const _keepHighest = (x, y) => (x >= y ? x : y)
+
+const max = _.reduce(_keepHighest, -Infinity)
+
+// console.log('max', max([1, 2, 3, 4, 5]))
+
+// Bonus 1 //
+
+// Wrap slice to b functional and curried
+
+// [1, 2, 3].slice(0, 2)
+
+const slice = _.curry((start, end, xs) => xs.slice(start, end))
+
+// Bonus 2 //
+
+// Use slice to define a function "take" that returns n elements from the beginning of an array. Make it curried.
+// For ['a', 'b', 'c'] with n=2 it should return ['a', 'b'].
+
+const take = slice(0)
+
+console.log(take(3)([1, 3, 4, 6]))
